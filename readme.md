@@ -13,12 +13,15 @@ sudo apt-get dist-upgrade
 # say yes when it asks to keep local version of tools that you've already updated/upgraded
 ```
 
-### build and deploy the frontend
+In this example we're going to run the frontend and backend on the same ec2 instance. In order to have both the frontend and backend running on the same aws instance, we're going to build each in a separate screen session.
+
+## Build and deploy the frontend
 
 You'll need node.js
 
 ```bash
 # install and set up nvm and node
+screen
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
 source ~/.bashrc
 
@@ -30,32 +33,33 @@ nvm use 0.12
 Once you've got node installed, grab this repo and let node install the dependencies:
 
 ```bash
-git clone https://github.com/Blahah/command_line_bootcamp.git
+git clone https://github.com/griffithlab/command_line_bootcamp.git
 cd command_line_bootcamp
 npm install
-```
-
-Make your changes (if any) and then deploy:
-
-```bash
 npm run deploy
 ```
 
-### setup and run the docker server backend
+Use nano to replace `#eeeeec` with `#333333` in `node_modules/adventure-time/node_modules/term.js/src/term.js` in order to make cursor color different from background of the terminal.
 
-Instructions for running on digitalocean:
+Then start the frontend server and disconnect from the screen session.
 
-Create a new instance of the Ubuntu+docker image.
+```bash
+npm start
+ctrl a+d
+```
 
-then ssh in and...
+## Setup and run the docker server backend
 
 ```bash
 # keep it running
-tmux
+screen
 
 # need some basics
 apt-get update
 apt-get install -y build-essential g++
+sudo systemctl enable docker
+sudo systemctl start docker
+sudo usermod -a -G docker ubuntu
 
 # install and set up nvm and node
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash
@@ -70,8 +74,7 @@ npm install --global docker-browser-server
 
 # setup docker
 docker pull ubuntu
-git clone https://github.com/Blahah/command_line_bootcamp.git
-cd command_line_bootcamp
+cd ~/command_line_bootcamp
 docker build -t "command_line_bootcamp" .
 docker-browser-server command_line_bootcamp -p 8080
 ```

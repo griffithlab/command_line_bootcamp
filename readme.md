@@ -7,8 +7,8 @@ Learn the unix command-line by using it in your browser. This repo was originall
 Launch AWS instance with base Ubuntu image.
 
 ```bash
-sudo apt-get -y update
-sudo apt-get -y upgrade
+sudo apt-get update -y
+sudo apt-get upgrade -y
 sudo apt-get dist-upgrade
 # say yes when it asks to keep local version of tools that you've already updated/upgraded
 ```
@@ -55,7 +55,7 @@ ctrl a+d
 screen
 
 # need some basics
-apt-get install -y build-essential g++
+sudo apt-get install -y build-essential g++
 sudo systemctl enable docker
 sudo systemctl start docker
 sudo usermod -a -G docker ubuntu

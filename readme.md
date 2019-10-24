@@ -4,6 +4,15 @@ Learn the unix command-line by using it in your browser. This repo was originall
 
 **NOTE** These are not the original setup instructions that came from the original repo. These have been modified to include some fixes and describe how to set this command line bootcamp up to run on AWS.
 
+Launch AWS instance with base Ubuntu image.
+
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+# say yes when it asks to keep local version of tools that you've already updated/upgraded
+```
+
 ### build and deploy the frontend
 
 You'll need node.js

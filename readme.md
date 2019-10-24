@@ -1,12 +1,8 @@
 # Command-line bootcamp
 
-Learn the unix command-line by using it in your browser.
+Learn the unix command-line by using it in your browser. This repo was originally forked from <https://github.com/blahah/command_line_bootcamp>
 
-### contributors
-
-- [@jessicamizzi](https://github.com/jessicamizzi)
-- [@gedankenstuecke](https://github.com/gedankenstuecke)
-- [@alexmorley](https://github.com/alexmorley) *<- responsible for this project still working* 💜
+**NOTE** These are not the original setup instructions that came from the original repo. These have been modified to include some fixes and describe how to set this command line bootcamp up to run on AWS.
 
 ### build and deploy the frontend
 
